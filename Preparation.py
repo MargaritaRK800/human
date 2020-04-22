@@ -9,7 +9,14 @@ app = Flask(__name__)
 def index(title):
     param = dict()
     param['title'] = title
-    return render_template('base.html', **param)
+    return render_template('base.html', title=title)
+
+
+@app.route('/training/<prof>')
+def training(prof):
+    param = dict()
+    param['title'] = prof
+    return render_template('simulator.html', **param)
 
 
 if __name__ == '__main__':
